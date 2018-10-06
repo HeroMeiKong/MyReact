@@ -17,8 +17,7 @@ class App extends Component {
     let todos = this.state.todoList.map((item,index)=>{
       return (
         <li key={index}>
-          <TodoItem todo={item} />
-          <TodoItem todo={item} onToggle={this.toggle.bind(this)} />
+          <TodoItem todo={item} onToggle={this.toggle.bind(this)} onDelete={this.delete.bind(this)} />
         </li>
       )
     })
@@ -33,6 +32,10 @@ class App extends Component {
         <ol>{todos}</ol>
       </div>
     )
+  }
+  delete(event,todo){
+    todo.delete = true
+    this.setState(this.state)
   }
   toggle(e,todo){
     todo.status = todo.status === 'completed' ? '':'completed'
