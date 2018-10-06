@@ -39,7 +39,7 @@ class App extends Component {
     localStore.save('todoList', this.state.todoList)
   }
   delete(event,todo){
-    todo.delete = true
+    todo.deleted = true
     this.setState(this.state)
   }
   toggle(e,todo){

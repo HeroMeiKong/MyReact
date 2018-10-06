@@ -3,5 +3,5 @@ export function save(key,value){
 }
 
 export function load(key){
-  return JSOM.parse(window.localStorage.getItem(key))
+  return JSON.parse(window.localStorage.getItem(key))
 }
