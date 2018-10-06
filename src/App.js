@@ -4,6 +4,7 @@ import 'normalize.css'
 import './reset.css'
 import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
+import UserDialog from './UserDialog'
 
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
           onSubmit={this.addTodo.bind(this)} />
         </div>
         <ol className="todoList">{todos}</ol>
+        <UserDialog />
       </div>
     )
   }
