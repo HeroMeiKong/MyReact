@@ -1,14 +1,13 @@
 {
-  "main.css": "/MyReact/build/static/css/main.2ddf535d.chunk.css",
-  "main.js": "/MyReact/build/static/js/main.90de139b.chunk.js",
-  "main.js.map": "/MyReact/build/static/js/main.90de139b.chunk.js.map",
-  "static/js/1.6105a37c.chunk.js": "/MyReact/build/static/js/1.6105a37c.chunk.js",
-  "static/js/1.6105a37c.chunk.js.map": "/MyReact/build/static/js/1.6105a37c.chunk.js.map",
+  "main.css": "/MyReact/build/static/css/main.03a83021.chunk.css",
+  "main.js": "/MyReact/build/static/js/main.d713fa2d.chunk.js",
+  "main.js.map": "/MyReact/build/static/js/main.d713fa2d.chunk.js.map",
+  "static/js/1.b99f27b3.chunk.js": "/MyReact/build/static/js/1.b99f27b3.chunk.js",
+  "static/js/1.b99f27b3.chunk.js.map": "/MyReact/build/static/js/1.b99f27b3.chunk.js.map",
   "runtime~main.js": "/MyReact/build/static/js/runtime~main.ecc7d1c7.js",
   "runtime~main.js.map": "/MyReact/build/static/js/runtime~main.ecc7d1c7.js.map",
-  "static/media/logo.svg": "/MyReact/build/static/media/logo.5d5d9eef.svg",
-  "static/css/main.2ddf535d.chunk.css.map": "/MyReact/build/static/css/main.2ddf535d.chunk.css.map",
+  "static/css/main.03a83021.chunk.css.map": "/MyReact/build/static/css/main.03a83021.chunk.css.map",
   "index.html": "/MyReact/build/index.html",
-  "precache-manifest.0bbed6f32a85c4c02efd8fba9ecba949.js": "/MyReact/build/precache-manifest.0bbed6f32a85c4c02efd8fba9ecba949.js",
+  "precache-manifest.6aae6a23986134ce724ff645e71c2850.js": "/MyReact/build/precache-manifest.6aae6a23986134ce724ff645e71c2850.js",
   "service-worker.js": "/MyReact/build/service-worker.js"
 }
