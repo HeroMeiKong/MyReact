@@ -6,6 +6,8 @@ import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import * as localStore from './localStore'
 
+import './av'
+
 
 class App extends Component {
   constructor(props){
