@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import './UserDialog.css'
-import {signUp,signIn} from './LeanCloud'
+import {signUp,signIn,sendPasswordResetEmail} from './LeanCloud'
 
 export default class UserDialog extends Component{
   constructor(props){
@@ -140,12 +140,6 @@ export default class UserDialog extends Component{
         </form>
       </div>
     )
-    showForgetPassword(){
-      let stateCopy = JSON.parse(JSON.stringify(this.state))
-      stateCopy.selectedTab = 'forgetPassword'
-      this.setState(stateCopy)
-    }
-    resetPassword(){}
     return(
       <div className="UserDialog-Wrapper">
         <div className="UserDialog">
@@ -153,5 +147,14 @@ export default class UserDialog extends Component{
         </div>
       </div>
     )
+  }
+  showForgetPassword(){
+    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    stateCopy.selectedTab = 'forgetPassword'
+    this.setState(stateCopy)
+  }
+  resetPassword(e){
+    e.preventDefault()
+    sendPasswordResetEmail(this.state.formData.email)
   }
 }

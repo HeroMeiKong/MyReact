@@ -47,6 +47,14 @@ export function signIn(username,password,successFn,errorFn){
   })
 }
 
+export function sendPasswordResetEmail(email,successFn,errorFn){
+  AV.User.requestPasswordReset(email).then(function (success){
+    successFn.call()
+  },function (error){
+    console.dir(error)
+  })
+}
+
 function getUserFromAVUser(AVUser){
   return {
     id: AVUser.id,
