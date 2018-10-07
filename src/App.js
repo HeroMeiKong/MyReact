@@ -5,7 +5,8 @@ import './reset.css'
 import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import UserDialog from './UserDialog'
-import {getCurrentUser,signOut} from './LeanCloud'
+import {getCurrentUser,signOut,TodoModel} from './LeanCloud'
+
 
 
 class App extends Component {
@@ -21,7 +22,8 @@ class App extends Component {
     let todos = this.state.todoList.filter((item)=> !item.deleted).map((item,index)=>{
       return (
         <li key={index}>
-          <TodoItem todo={item} onToggle={this.toggle.bind(this)} onDelete={this.delete.bind(this)} />
+          <TodoItem todo={item} onToggle={this.toggle.bind(this)} 
+          onDelete={this.delete.bind(this)} />
         </li>
       )
     })
@@ -37,7 +39,9 @@ class App extends Component {
           onSubmit={this.addTodo.bind(this)} />
         </div>
         <ol className="todoList">{todos}</ol>
-        {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)} onSignIn={this.onSignUpOrSignIn.bind(this)} />}
+        {this.state.user.id ? null : 
+          <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)} 
+            onSignIn={this.onSignUpOrSignIn.bind(this)} />}
       </div>
     )
   }
@@ -70,23 +74,22 @@ class App extends Component {
     })
   }
   addTodo(event){
-    this.state.todoList.push({
-      id: idMaker(),
+    let newTodo = {
       title: event.target.value,
       status: null,
       deleted: false
-    })
-    this.setState({
-      newTodo: '',
-      todoList: this.state.todoList
+    }
+    TodoModel.create(newTodo,(id)=>{
+      newTodo.id = id
+      this.state.todoList.push(newTodo)
+      this.setState({
+        newTodo: '',
+        todoList: this.state.todoList
+      })
+    },(error)=>{
+      console.log(error)
     })
   }
 }
 
 export default App;
-
-let id = 0
-function idMaker(){
-  id += 1
-  return id
-}

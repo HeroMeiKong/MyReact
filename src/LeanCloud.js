@@ -10,6 +10,22 @@ AV.init({
 
 export default AV
 
+export const TodoModel = {
+  create({status,title,deleted},successFn,errorFn){
+    let Todo = AV.Object.extend('Todo')
+    let todo = new Todo()
+    todo.set('title',title)
+    todo.set('status',status)
+    todo.set('deleted',deleted)
+    todo.save().then(function (response) {
+      successFn.call(null,response.id)
+    }, function (error) {
+      errorFn && errorFn.call(null,error)
+    });
+  },
+  update(){},
+  destroy(){}
+}
 export function signUp(username,password,email,successFn,errorFn){
   var user= new AV.User()
   user.setUsername(username)
