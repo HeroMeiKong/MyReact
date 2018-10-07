@@ -21,42 +21,55 @@ export default class UserDialog extends Component{
   signUp(e){
     e.preventDefault()
     let {username,password} = this.state.formData
-    let success = (user)=>{
-      this.props.onSignUp.call(null,user)
-    }
-    let error = (error)=>{
-      alert(error)
-      switch (error) {
-        case 202:
-          alert('用户名已被占用')
-          break;
-      
-        default:
-        alert(error)
-          break;
+    if(username === ''){ alert('用户名为空')}
+    else if(password === ''){alert('密码不能为空')}
+    else{
+      let success = (user)=>{
+        this.props.onSignUp.call(null,user)
       }
+      let error = (error)=>{
+        console.log(error)
+        switch (error.code) {
+          case 202:
+            alert('用户名已被占用')
+            break;
+        
+          default:
+          alert(error)
+            break;
+        }
+      }
+      signUp(username,password,success,error)
     }
-    signUp(username,password,success,error)
   }
   signIn(e){
     e.preventDefault()
     let {username,password} = this.state.formData
-    let success = (user)=>{
-      this.props.onSignIn.call(null,user)
-    }
-    let error = (error)=>{
-      alert(error)
-      switch (error) {
-        case 210:
-          alert('用户名与密码不匹配')
-          break;
-      
-        default:
-        alert(error)
-          break;
+    if(username === ''){ alert('用户名为空')}
+    else if(password === ''){alert('密码不能为空')}
+    else{
+      let success = (user)=>{
+        this.props.onSignIn.call(null,user)
       }
+      let error = (error)=>{
+        switch (error.code) {
+          case 210:
+            alert('用户名与密码不匹配')
+            break;
+          case 201:
+            alert('没有提供密码，或者密码为空')
+            break;
+          case 211:
+          console.log(error.code)
+            alert('找不到用户')
+            break;
+          default:
+            alert(error)
+            break;
+        }
+      }
+      signIn(username,password,success,error)
     }
-    signIn(username,password,success,error)
   }
   changeFormData(key,e){
     let stateCopy = JSON.parse(JSON.stringify(this.state))
