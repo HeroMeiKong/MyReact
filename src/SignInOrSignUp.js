@@ -6,7 +6,7 @@ export default class SignInOrSignUp extends Component{
   constructor(props){
     super(props)
     this.state = {
-      selected: 'signUp'
+      selected: 'signIn'
     }
   }
   switchTab(e) {
@@ -34,7 +34,7 @@ export default class SignInOrSignUp extends Component{
             <SignInForm formData={this.props.formData}
             onChange={this.props.onChange}
             onSubmit={this.props.onSignIn}
-            onForgotPassword={this.props.onForgetPassword} /> : null}
+            onForgotPassword={this.props.onForgotPassword} /> : null}
           </div>
       </div>
     )

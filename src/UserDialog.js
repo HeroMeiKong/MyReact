@@ -84,7 +84,7 @@ export default class UserDialog extends Component{
               onSignIn={this.signIn.bind(this)}
               onSignUp={this.signUp.bind(this)}
               onChange={this.changeFormData.bind(this)}
-              onForgotPassword={this.showForgetPassword.bind(this)} /> : 
+              onForgotPassword={this.showForgotPassword.bind(this)} /> : 
             <ForgotPasswordForm formData={this.state.formData}
               onSubmit={this.resetPassword.bind(this)}
               onChange={this.changeFormData.bind(this)}
@@ -93,9 +93,9 @@ export default class UserDialog extends Component{
       </div>
     )
   }
-  showForgetPassword(){
+  showForgotPassword(){
     let stateCopy = JSON.parse(JSON.stringify(this.state))
-    stateCopy.selectedTab = 'forgetPassword'
+    stateCopy.selectedTab = 'forgotPassword'
     this.setState(stateCopy)
   }
   returnToSignIn(){

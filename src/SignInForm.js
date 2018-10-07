@@ -11,7 +11,7 @@ export default class SignUpForm extends Component{
         </div>
         <div className="row">
           <label>密码</label>
-          <input type="password" value={this.state.formData.password} 
+          <input type="password" value={this.props.formData.password} 
           onChange={this.props.onChange.bind(null,'password')} />
         </div>
         <div className="row actions">
