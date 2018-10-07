@@ -17,6 +17,14 @@ class App extends Component {
       newTodo: '',
       todoList: [],
     }
+    let user = getCurrentUser()
+    if(user){
+      TodoModel.getByUser(user, (todos) =>{
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.todoList =todos
+        this.setState(stateCopy)
+    })
+  }
   }
   render() {
     let todos = this.state.todoList.filter((item)=> !item.deleted).map((item,index)=>{
