@@ -1,14 +1,12 @@
 .UserDialog-Wrapper{ 
   /*全屏*/      position: fixed; top: 0; left: 0; bottom: 0; right: 0; 
   /*内容居中*/  display: flex; justify-content: center; align-items: center;
-  background: hsla(0,0%,0%,0.35);
+  background: #F0EFE9;
 }
 .UserDialog{
-  border: 1px solid;
   border-radius: 4px;
   min-width: 20em;
   background: white;
-  border: 1px solid #aaa;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
 }
 .UserDialog .signInOrSignUp > nav:first-child{ padding: 1em; margin-left:-2em; }
@@ -19,8 +17,11 @@
 .UserDialog .forgetPassword > form{ padding: 0 1em 1em;}
 
 .UserDialog form>.row{ display: flex; padding: .3em 0; }
-.UserDialog form>.row>label:first-child{ width: 4em; }
+.UserDialog form>.row>label:first-child{ width: 4em; text-align: right;}
 .UserDialog form>.row.actions{ padding-left: 4em; display: flex; align-items: center; }
-.UserDialog form>.row.actions button{ margin-left: .5em;}
+.UserDialog form>.row.actions button{ margin-left: .5em; padding: 10px 20px;border-radius: 6px;cursor: pointer;
+  background: #F0EFE9; border-style: none;transition: all .2s;
+  outline: none; }
+  .UserDialog form>.row.actions button:hover{ box-shadow: 0 2px 2px 2px rgba(158, 160, 166, 0.5),0 2px 1px rgba(158, 160, 166, 0.7);;}
 
 .UserDialog button{font: inherit; padding: .2em;}

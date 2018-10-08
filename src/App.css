@@ -5,11 +5,19 @@
   border-radius: 4px;
   background: white;
   margin: 2em;
+  min-width: 50%;
   padding: 0 1em;
-  min-height: 20em;
-  min-width: 32em;
   box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.15);
 }
+
+.App button{
+  margin-left: .5em; padding: 10px 20px;border-radius: 6px;cursor: pointer;
+  background: #F0EFE9; border-style: none;transition: all .2s;
+  outline: none; border-width: 3px;
+}
+.App > h2 > button{margin: 1em;}
+
+.App > .inputWrapper{ display: flex; justify-content: center;align-items: center;margin-bottom: 1em;}
 
 .App > .todoList > li:nth-child(even) {
   background: transparent;

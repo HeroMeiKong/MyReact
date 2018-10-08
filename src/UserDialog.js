@@ -21,16 +21,26 @@ export default class UserDialog extends Component{
     e.preventDefault()
     let {username,password,email} = this.state.formData
     if(username === ''){ alert('用户名为空')}
+    else if(username.length < 3){alert('用户名最少3个字符')}
     else if(password === ''){alert('密码不能为空')}
+    else if(password.length < 6){alert('密码最少6位')}
     else{
       let success = (user)=>{
         this.props.onSignUp.call(null,user)
       }
       let error = (error)=>{
-        console.log(error)
         switch (error.code) {
+          case 125:
+            alert('电子邮箱地址无效，格式为： youremail@yourhost.com')
+            break;
           case 202:
             alert('用户名已被占用')
+            break;
+          case 203:
+            alert('电子邮箱地址已经被占用')
+            break;
+          case 204:
+            alert('没有提供电子邮箱地址')
             break;
         
           default:
