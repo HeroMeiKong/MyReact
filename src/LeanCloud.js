@@ -94,9 +94,23 @@ export function signIn(username,password,successFn,errorFn){
 
 export function sendPasswordResetEmail(email,successFn,errorFn){
   AV.User.requestPasswordReset(email).then(function (success){
+    alert('邮件发送成功，请注意查收！')
     successFn.call()
   },function (error){
+    switch (error.code) {
+      case 205:
+        alert('找不到电子邮箱地址对应的用户');
+        break;
+        case 204:
+        alert('没有提供电子邮箱地址');
+        break;
+      default:
+        alert('邮件发送失败，请检查网络！')
+        alert(error.code)
+        break;
+    }
     errorFn.call(null,error)
+    
   })
 }
 
